@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графический редактор</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="toolbar">
+    </div>
+    <div class="canvas-container">
+        <canvas id="canvas" width="500"></canvas>
+    </div>
+
+    <div class="controls">
+         <button id="eraser">Ластик</button>
+        <button id="brush">Кисть</button>
+        <input type="color" id="color-picker">
+        <label for="brush-size">Размер кисти:</label>
+        <input type="range" id="brush-size" min="1" max="20" value="5">
+        <label for="eraser-size">Размер ластика:</label>
+        <input type="range" id="eraser-size" min="1" max="20" value="5">
+        <button id="clear">Очистить</button>
+        <button id="saveButton">Сохранить</button>
+
+
+
+    </div>
+
+
+    <div class="menu">
+    <a href="#" id="menu-trigger" class="menu__btn">
+        <span class="menu__burger"></span>
+        <span class=menu__exit></span>
+    </a>
+</div>
+
+
+    <div id="ideaContainer">
+    <div id="ideaTextContainer">
+        <h1 id="randomIdeaText"><strong></strong></h1>
+    </div>
+    <div id="buttonContainer">
+        <button id="randomIdeaButton">Рандомная идея</button>
+    </div>
+</div>
+
+<div class="top-container">
+        <input type="range" min="100" max="800" value="100" id="canvasSizeSlider" oninput="setCanvasSizeSlider()">
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const canvasSizeSlider = document.getElementById('canvasSizeSlider');
+
+        function setCanvasSizeSlider() {
+            const size = canvasSizeSlider.value;
+            canvas.width = size;
+            canvas.height = size * 0.75; // соотношение сторон 4:3
+        }
+    </script>
+
+    <script src="ideas.js"></script>
+    <script src="save.js"></script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src="menu.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
